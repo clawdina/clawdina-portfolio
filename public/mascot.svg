@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0f0f1a"/>
+    </radialGradient>
+    <radialGradient id="bodyGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#4a3f6b"/>
+      <stop offset="100%" stop-color="#2a2040"/>
+    </radialGradient>
+    <radialGradient id="cheekL" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff69b4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ff69b4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cheekR" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff69b4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ff69b4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="40" fill="url(#bg)"/>
+
+  <!-- Floating particles -->
+  <circle cx="80" cy="60" r="2" fill="#7b68ee" opacity="0.6" filter="url(#softglow)">
+    <animate attributeName="cy" values="60;50;60" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="320" cy="90" r="1.5" fill="#9b59b6" opacity="0.5" filter="url(#softglow)">
+    <animate attributeName="cy" values="90;78;90" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="50" cy="300" r="2" fill="#6c5ce7" opacity="0.4" filter="url(#softglow)">
+    <animate attributeName="cy" values="300;290;300" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="350" cy="320" r="1.5" fill="#a29bfe" opacity="0.5" filter="url(#softglow)">
+    <animate attributeName="cy" values="320;310;320" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Tail - swirly spiral -->
+  <path d="M 280 280 Q 330 260 340 220 Q 350 180 320 170 Q 290 160 285 190 Q 280 215 300 220" 
+        stroke="#6c5ce7" stroke-width="8" fill="none" stroke-linecap="round" filter="url(#glow)">
+    <animate attributeName="d" 
+      values="M 280 280 Q 330 260 340 220 Q 350 180 320 170 Q 290 160 285 190 Q 280 215 300 220;
+              M 280 280 Q 335 255 345 218 Q 352 178 318 165 Q 286 158 282 192 Q 278 218 298 224;
+              M 280 280 Q 330 260 340 220 Q 350 180 320 170 Q 290 160 285 190 Q 280 215 300 220"
+      dur="4s" repeatCount="indefinite"/>
+  </path>
+  <!-- Spiral tip glow -->
+  <circle cx="300" cy="220" r="4" fill="#a29bfe" filter="url(#softglow)">
+    <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Body - round chibi blob -->
+  <ellipse cx="200" cy="260" rx="95" ry="85" fill="url(#bodyGrad)" stroke="#6c5ce7" stroke-width="2"/>
+
+  <!-- Head - big round chibi head -->
+  <circle cx="200" cy="170" r="90" fill="url(#bodyGrad)" stroke="#6c5ce7" stroke-width="2"/>
+
+  <!-- Ears - pointy cat ears -->
+  <path d="M 135 110 L 120 40 L 165 90 Z" fill="#3a2d5c" stroke="#6c5ce7" stroke-width="2"/>
+  <path d="M 265 110 L 280 40 L 235 90 Z" fill="#3a2d5c" stroke="#6c5ce7" stroke-width="2"/>
+  <!-- Inner ears -->
+  <path d="M 140 105 L 130 55 L 160 92 Z" fill="#5a4a8a" opacity="0.6"/>
+  <path d="M 260 105 L 270 55 L 240 92 Z" fill="#5a4a8a" opacity="0.6"/>
+
+  <!-- Eyes - spiral eyes! 🌀 -->
+  <!-- Left eye bg -->
+  <circle cx="170" cy="165" r="22" fill="#0f0f1a"/>
+  <!-- Left spiral -->
+  <g filter="url(#glow)">
+    <path d="M 170 165 
+             Q 178 158 180 165 
+             Q 182 175 170 177 
+             Q 157 175 155 165 
+             Q 157 152 170 150 
+             Q 186 152 188 165 
+             Q 186 182 170 184" 
+          stroke="#7b68ee" stroke-width="2" fill="none" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="rotate" from="0 170 165" to="360 170 165" dur="8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Right eye bg -->
+  <circle cx="230" cy="165" r="22" fill="#0f0f1a"/>
+  <!-- Right spiral -->
+  <g filter="url(#glow)">
+    <path d="M 230 165 
+             Q 238 158 240 165 
+             Q 242 175 230 177 
+             Q 217 175 215 165 
+             Q 217 152 230 150 
+             Q 246 152 248 165 
+             Q 246 182 230 184" 
+          stroke="#7b68ee" stroke-width="2" fill="none" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="rotate" from="0 230 165" to="-360 230 165" dur="8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Blush cheeks -->
+  <ellipse cx="145" cy="190" rx="15" ry="10" fill="url(#cheekL)"/>
+  <ellipse cx="255" cy="190" rx="15" ry="10" fill="url(#cheekR)"/>
+
+  <!-- Tiny smirk mouth -->
+  <path d="M 188 198 Q 200 208 215 200" stroke="#9b59b6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Little paws -->
+  <ellipse cx="155" cy="320" rx="25" ry="15" fill="#3a2d5c" stroke="#6c5ce7" stroke-width="1.5"/>
+  <ellipse cx="245" cy="320" rx="25" ry="15" fill="#3a2d5c" stroke="#6c5ce7" stroke-width="1.5"/>
+  <!-- Paw pads -->
+  <circle cx="148" cy="318" r="4" fill="#5a4a8a" opacity="0.6"/>
+  <circle cx="162" cy="318" r="4" fill="#5a4a8a" opacity="0.6"/>
+  <circle cx="238" cy="318" r="4" fill="#5a4a8a" opacity="0.6"/>
+  <circle cx="252" cy="318" r="4" fill="#5a4a8a" opacity="0.6"/>
+
+  <!-- Floating text -->
+  <text x="200" y="375" text-anchor="middle" font-family="monospace" font-size="14" fill="#6c5ce7" opacity="0.7" filter="url(#softglow)">
+    🌀 clawdina
+  </text>
+</svg>
